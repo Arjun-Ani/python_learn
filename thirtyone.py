@@ -1,0 +1,48 @@
+import sys
+from random import *
+words=[]
+i=0
+with open("/python/sowpods.txt") as f:
+    line=f.readline().split()
+    while line:
+        words.append(line)
+        line=f.readline().split()
+        i=i+1
+a=randint(0,i+1)
+b=words[a]
+c=str(b[0])
+d=len(c)
+print "Welcome to hangman"
+print "The word contains %s character\'s and you have that many chances" %d
+i=0
+k=[]
+j=0
+while(j<d):
+    k.append("_")
+    j=j+1
+while(i<d):
+    e=raw_input("Enter Your Guess\n")
+    p=0
+    q=0
+    r=0
+    for j in c:
+        if j.lower()==e.lower():
+            k[q]=j
+            p=p+1
+        q=q+1
+    if(p==0):
+        print "Incorrect"
+    z=''.join(str(f) for f in k)
+    print z
+    for s in k:
+        if s=="_":
+            r=1
+    if(r==0):
+        print "You Won"
+        sys.exit()
+    i=i+1
+print "Better Luck Next Time"
+print "Correct One %s" %c
+
+
+
