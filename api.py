@@ -4,6 +4,7 @@ from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 #api = Api(app)
 
+print __name__
 @app.route("/")
 def hello():
 	return "Hello"
